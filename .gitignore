@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.sqlite3
+*pyc
+*.pyc
+*.idea
+*.vscode
+venv
+media
+*.venv
+celerybeat.pid
+ubuton20by66.pem
+.env
+*.env
