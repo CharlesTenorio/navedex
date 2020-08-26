@@ -12,16 +12,6 @@ AUTH_USER_MODEL ='usuarios.User'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
-REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10
-}
-
 
 # Application definition
 
@@ -36,6 +26,10 @@ LIB_APPS = [
 
 NEVER_APPS =[
     'usuarios',
+    'empresas',
+    'cargos',
+    'projetos',
+    'navers',
 ]
 
 DEFAULT_APPS = [
@@ -92,11 +86,12 @@ WSGI_APPLICATION = 'never_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME', default='db_app'),
+        'NAME': config('DB_NAME', default='navedexdb '),
         'USER': config('DB_USER', default='postgres'),
         'PASSWORD': config('DB_PW', default='password'),
-        'HOST': config('DB_HOST', default='db'),
+        'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
+
     }
 }
 
@@ -172,6 +167,17 @@ SEXO = (
     ('Feminino', 'Feminino'),
     ('Outros', 'Outros'),
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+     )
+
+}
 
 
 LANGUAGE_CODE = 'pt-br'

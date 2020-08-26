@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import Cargo
 
-# Register your models here.
+class CargoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'cargo')
+    search_fields = ('cargo',)
+
+
+admin.site.register(Cargo, CargoAdmin)

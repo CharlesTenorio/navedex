@@ -19,6 +19,9 @@ psycopg2-binary = "*"
 install = "*"
 httpx = "*"
 django-cors-headers = "*"
+pytest = "*"
+pytest-sugar = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
