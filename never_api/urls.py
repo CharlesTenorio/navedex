@@ -37,14 +37,14 @@ router.register(r'api/projetos/projeto', ProjetoViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/usr/registra_usr/', registra_view, name='registrar'),
-    path('api/api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
+    #path('api/api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
     path('api/usr/obeter_token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/usr/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/usr/jwt/', MyTokenObtainPairView.as_view(), name='token_refresh'),
+    #path('api/usr/jwt/', MyTokenObtainPairView.as_view(), name='token_refresh'),
 
 ]
